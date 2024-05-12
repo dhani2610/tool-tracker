@@ -107,19 +107,7 @@
             </div>
             @endif
 
-            @if(auth()->user()->can('user-list'))
-            <div class="col-md-4 col-sm-6 col-12 p-1" onclick="location.href='{{ route('tipe-pekerjaan') }}';">
-                <div class="info-box bg-gradient-info master-data">
-                    <span class="info-box-icon" style="background-color:rgb(0, 98, 128); "><i class="bx bx-file text-white"></i></span>
 
-                    <div class="info-box-content">
-                        <span class="info-box-text font-size-18 text-bold">Manage Tipe Pekerjaan</span>
-
-                        <span class="font-size-12" style="color: rgba(175, 174, 174, 0.788); line-height:normal;">Create, read, update, and delete User.</span>
-                    </div>
-                </div>
-            </div>
-            @endif
         </div>
     </div>
 </div>

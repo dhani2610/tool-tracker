@@ -5,6 +5,9 @@
     .pointer {
         cursor: pointer;
     }
+    .bg-gray1{
+        background: aqua!important;
+    }
 </style>
 @endsection
 
@@ -55,9 +58,7 @@
                             <th>No</th>
                             <th>Username</th>
                             <th>Departement</th>
-                            @if(auth()->user()->can('history-log-delete'))
                             <th>Action</th>
-                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -66,9 +67,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $l->username }}</td>
                             <td>{{ $l->getRoleNames()[0] }}</td>
-                            @if(auth()->user()->can('history-log-delete'))
                             <td>
-                                @can('history-log-delete')
                                 <form action="{{ route('approve-register',$l ->id) }}" method="post">
                                     @csrf
                                     <button class="btn btn-success f-12" type="submit">
@@ -76,9 +75,14 @@
                                     </button>
                                     </a>
                                 </form>
-                                @endcan
+                                <form action="{{ route('not-approve-register',$l ->id) }}" method="post">
+                                    @csrf
+                                    <button class="btn btn-danger f-12" type="submit">
+                                        Not Approv
+                                    </button>
+                                    </a>
+                                </form>
                             </td>
-                            @endif
                         </tr>
                         @endforeach
                     </tbody>

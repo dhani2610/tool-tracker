@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Barang;
 use App\Models\User;
 use App\Models\HistoryLog;
 Use File;
@@ -17,13 +19,21 @@ class RegisterController extends Controller
     {
         $data['page_title'] = 'Master App';
         $data['breadcumb'] = 'Master App';
-        $data['roles'] = Role::where(function($query) {
-            $query->where('name', 'Guru')
-              ->orWhere('name', 'Wali Kelas')
-              ->orWhere('name', 'Bendahara Sekolah');
-            })->get();
+        $data['roles'] = Role::pluck('name')->all();
 
         return view('auth.register', $data);
+    }
+
+    public function cari(Request $request){
+        $data['alat'] = Barang::get();
+        $data['peminjaman'] = DB::table('pinjaman_barangs')
+            ->join('barangs', 'barangs.id', '=', 'pinjaman_barangs.id_barang')
+            ->join('users', 'users.id', '=', 'pinjaman_barangs.id_peminjam')
+            ->select('pinjaman_barangs.*','barangs.*','users.name as nama_peminjam','pinjaman_barangs.status as status_peminjaman','pinjaman_barangs.id as id_pinjaman')
+            ->where('pinjaman_barangs.id_barang',$request->id_alat)
+            ->first();
+
+        return view('auth.cari', $data);
     }
 
     public function store(Request $request)
@@ -36,17 +46,14 @@ class RegisterController extends Controller
             'password' => 'required|min:8',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'role' => 'required',
-            'nik' => 'required|numeric',
-            'nuptk' => 'required|numeric',
         ]);
 
         $user = new User();
         $user->name = $validateData['name'];
         $user->username = $validateData['username'];
         $user->email = $validateData['email'];
-        $user->nik = $validateData['nik'];
-        $user->nuptk = $validateData['nuptk'];
         $user->password = Hash::make($validateData['password']);
+        $user->approval = 'Pending';
 
         if ($request->hasFile('avatar')) {
             $image = $request->file('avatar');
@@ -59,6 +66,6 @@ class RegisterController extends Controller
         $user->save();
         $user->assignRole($validateData['role']);
 
-        return redirect()->route('user.login')->with(['success' => 'Register Berhasil! ']);
+        return redirect()->route('user.login')->with(['success' => 'Register Berhasil! Akun mu akan di validasi oleh admin ']);
     }
 }

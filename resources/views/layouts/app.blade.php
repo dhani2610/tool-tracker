@@ -44,6 +44,7 @@
         </div>
         <!-- END layout-wrapper -->
 
+
         @include('layouts.partials.foot')
     </body>
 </html>

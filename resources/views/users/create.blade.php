@@ -35,30 +35,12 @@
 
             <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @include('components.form-message')
+
 
                 <div class="card-body">
-{{-- 
-                    <div class="form-group mb-3">
-                        <label for="nik">NIP</label>
-                        <input type="number" class="form-control @error('nik') is-invalid @enderror" id="nik" name="nik" value="{{ old('nik') }}"  placeholder="Enter NIK">
 
-                        @error('nik')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label for="nuptk">NUPTK</label>
-                        <input type="number" class="form-control @error('nuptk') is-invalid @enderror" id="nuptk" name="nuptk" value="{{ old('nuptk') }}"  placeholder="Enter NUPTK">
-
-                        @error('nuptk')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div> --}}
+                   
 
                     <div class="form-group mb-3">
                         <label for="name">Name</label>
@@ -92,20 +74,6 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label for="name" class="form-control @error('type') is-invalid @enderror" >Type</label>
-                        <select name="type" id="">
-                            <option value="Spv">Supervisor</option>
-                            <option value="Operator">Operator</option>
-                        </select>
-
-                        @error('type')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group mb-3">
                         <label>Role</label>
                         <select class="form-control" name="role">
                             <option disabled selected>Select One Role Only</option>
@@ -129,6 +97,7 @@
                             </span>
                         @enderror
                     </div>
+                    <input type="hidden" name="approval" value="Approve">
 
                     <div class="form-group mb-3">
                         <label for="avatar">Avatar</label>

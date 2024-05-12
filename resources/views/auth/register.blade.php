@@ -189,20 +189,17 @@
     </head>
 
     <body data-topbar="dark ">
-
-    <!-- <body data-layout="horizontal"> -->
-
-        <div class="d-lg-flex half">
-          <div class="bg order-1 bg-primary order-md-2" style="background-image: url('{{ asset('img/loginbg.png') }}');"></div>
-            <div class="contents">
-        
-              <div class="container">
-                <div class="row align-items-center justify-content-center">
-                  <div class="col-md-6">
-                    <div class="mb-4 mb-md-5 text-center">
-                        <a href="index.html" class="d-block auth-logo">
-                          <img src="{{ asset('img/loginbg.png') }}" alt="" height="100">
-                        </a>
+      <div class="d-lg-flex half">
+        <div class="bg order-1 bg-perpus order-md-2" style="background-image: url(''); "></div>
+        <div class="contents">
+    
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-md-6">
+                <div class="mb-4 mb-md-5 text-center">
+                    <a href="index.html" class="d-block auth-logo">
+                        <img src="{{ asset('img/76-764671_software-tools-icon-png-transparent-png-removebg-preview.png') }}" alt="" height="100">
+                    </a>
                         <div class="text-center">
                             <h5 class="mb-0 font-telkom">Selamat Datang</h5>
                             <p class="text-muted mt-2">Silahkan Masuk.</p>
@@ -236,28 +233,11 @@
                               </span>
                           @enderror
                         </div>
+                        <input type="hidden" name="role" value="User">
 
                         <div class="form-floating form-floating-custom mb-4">
                           <input id="email" type="email" class="form-control  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus placeholder="Enter Name">
                           <label for="input-username">Alamat Email</label>
-                          <div class="form-floating-icon">
-                            <i data-feather="users"></i>
-                          </div>
-                          @error('email')
-                              <span class="invalid-feedback" role="alert">
-                                  <strong>{{ $message }}</strong>
-                              </span>
-                          @enderror
-                        </div>
-                        
-                        <div class="form-floating form-floating-custom mb-4">
-                          <select class="form-control" name="role" required autofocus>
-                            <option disabled selected>Pilih Jabatan</option>
-                            @foreach ($roles as $role)
-                                <option value="{{ $role->name }}" >{{ $role->name }}</option>
-                            @endforeach
-                          </select>
-                          <label for="input-username">Jabatan</label>
                           <div class="form-floating-icon">
                             <i data-feather="users"></i>
                           </div>

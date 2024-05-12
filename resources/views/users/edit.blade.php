@@ -40,6 +40,7 @@
 
                     @include('components.form-message')
 
+
                     <div class="form-group mb-3">
                         <label for="name">Name</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
@@ -73,20 +74,7 @@
                         </span>
                         @enderror
                     </div>
-                    
-                    <div class="form-group mb-3">
-                        <label for="name" class="form-control @error('type') is-invalid @enderror" >Type</label>
-                        <select name="type" id="">
-                            <option value="Spv">Supervisor</option>
-                            <option value="Operator">Operator</option>
-                        </select>
-
-                        @error('type')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
+            
 
                     <div class="form-group mb-3">
                         <label>Roles</label>

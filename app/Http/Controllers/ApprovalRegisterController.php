@@ -31,16 +31,17 @@ class ApprovalRegisterController extends Controller
     public function approval(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $user->approval = 'Approv';
+        $user->approval = 'Approve';
         $user->save();
-
-        $newHistoryLog = new HistoryLog();
-        $newHistoryLog->datetime = date('Y-m-d H:i:s');
-        $newHistoryLog->type = 'Update User';
-        $newHistoryLog->user_id = auth()->user()->id;
-        $newHistoryLog->save();
-
         return redirect()->route('approval-list')->with(['success' => 'Approv successfully!']);
+    }
+
+    public function notApprove(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->approval = 'Not Approve';
+        $user->save();
+        return redirect()->route('approval-list')->with(['success' => 'Not Approv successfully!']);
     }
 
 }

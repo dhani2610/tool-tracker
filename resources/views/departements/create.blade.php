@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('style')
-
+.bg-gray1{
+    background: aqua!important;
+}
 @endsection
 
 @section('breadcumb')

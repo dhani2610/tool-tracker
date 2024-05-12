@@ -9,6 +9,9 @@
     .btn-footer {
         width: 110px;
     }
+    .bg-gray1{
+        background: aqua!important;
+    }
   </style>
 @endsection
 

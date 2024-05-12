@@ -23,7 +23,6 @@ class User extends Authenticatable
         'username',
         'avatar',
         'password',
-        'type',
         'nim',
         'nip',
         'prodi',
@@ -31,6 +30,8 @@ class User extends Authenticatable
         'tipe_keanggotaan',
     ];
 
+
+   
     /**
      * The attributes that should be hidden for arrays.
      *

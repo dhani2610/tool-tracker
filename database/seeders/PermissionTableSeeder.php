@@ -29,6 +29,19 @@ class PermissionTableSeeder extends Seeder
             'history-log-delete',
             'profile',
             'profile-edit',
+            'menu-admin',
+            'approval-user',
+            'approval-alat',
+            'my-alat',
+            'menu-user',
+            'menu-pinjaman',
+            'request-pinjaman-my-alat',
+            'peminjaman',
+            'menu-pengembalian',
+            'request-pengembalian-my-alat',
+            'pengembalian',
+            'menu-umum',
+            'alat',
         ];
 
         foreach ($permissions as $permission) {

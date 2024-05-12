@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\profile;
-use App\Models\HistoryLog;
+
 Use File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +26,7 @@ class ProfileController extends Controller
         $data['users'] = User::where('id', auth()->user()->id)->get();
         $data['roles'] = Role::pluck('name')->all();
         
+     
         return view('profile.index', $data);
     }
 

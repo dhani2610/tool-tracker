@@ -27,6 +27,8 @@ class UserSeeder extends Seeder
             $user->username = 'root';
             $user->email = 'root@root.com';
             $user->password = Hash::make('root');
+            $user->nim = '0001';
+            $user->nip = '0002';
     
             $user->save();
     

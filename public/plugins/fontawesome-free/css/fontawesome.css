@@ -604,6 +604,7 @@ readers do not read off random characters that represent icons */
   content: "\f7e6"; }
 
 .fa-book-open:before {
+  color: black;
   content: "\f518"; }
 
 .fa-book-reader:before {

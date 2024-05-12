@@ -64,7 +64,6 @@
               <th>Name</th>
               <th>Username</th>
               <th>Email</th>
-              <th>Type</th>
               @if(auth()->user()->can('user-delete') || auth()->user()->can('user-edit'))
               <th>Action</th>
               @endif
@@ -80,7 +79,6 @@
               <td>{{ $user->name }}</td>
               <td>{{ $user->username.'('. $user->getRoleNames()[0] .')'}}</td>
               <td>{{ $user->email }}</td>
-              <td>{{ $user->type }}</td>
               @if(auth()->user()->can('user-delete') || auth()->user()->can('user-edit'))
               <td>
                 <div class="btn-group">
@@ -91,7 +89,9 @@
                   </a>
                   @endcan
                   @if(auth()->user()->can('user-delete') && Auth::user()->id != $user->id)
-                  <a href="#" class="btn btn-danger f-12" onclick="modalDelete('User', '{{ $user->username }}', 'users/' + {{ $user->id }}, '/users/')">
+                
+
+                  <a href="{{ route('user-destroy', $user->id) }}" class="btn btn-danger f-12">
                     <i class="far fa-trash-alt"></i>
                     Delete
                   </a>

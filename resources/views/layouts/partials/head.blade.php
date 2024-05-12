@@ -1,5 +1,5 @@
 <meta charset="utf-8" />
-<title>{{$page_title ?? 'Perpustakaan'}} </title>
+<title>{{$page_title ?? 'AKTIFITAS'}} </title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
@@ -48,8 +48,8 @@
         z-index: 9999999999999999999999;
     }
     .bg-gray1{
-            background-color: #2a3042 !important;
-        }
+        background: aqua!important;
+    }
 </style>
 
 @yield('style')
